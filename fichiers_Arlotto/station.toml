@@ -1,0 +1,16 @@
+# configuration de la station sol
+[station]
+name = "La Garde"
+latitude = 43.1362
+longitude = 6.0198
+altitude = 5 
+locator = "JN33ad"
+
+[receiver]
+name = 'pluto'
+ip = '192.168.0.183'
+
+[rotator]
+name = 'rotor1'
+ip = '192.168.0.124'
+port = '3121'
