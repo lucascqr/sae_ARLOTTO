@@ -1,0 +1,107 @@
+title="planification"
+#dates are in RFC3339 UTC timestamp format
+
+#computed from 2024-07-16T14:02:54Z to 2024-07-17T14:02:54Z
+
+[[observations]]
+satellite="ISS"
+start_time=2024-07-16T15:06:30Z
+end_time=2024-07-16T15:21:25Z
+culmination=59
+
+[[observations]]
+satellite="NOAA 15"
+start_time=2024-07-16T16:48:20Z
+end_time=2024-07-16T16:57:40Z
+culmination=16
+
+[[observations]]
+satellite="NOAA 15"
+start_time=2024-07-16T18:25:43Z
+end_time=2024-07-16T18:38:28Z
+culmination=78
+
+[[observations]]
+satellite="METOP-B"
+start_time=2024-07-16T19:29:49Z
+end_time=2024-07-16T19:41:44Z
+culmination=35
+
+[[observations]]
+satellite="NOAA 19"
+start_time=2024-07-16T19:58:51Z
+end_time=2024-07-16T20:12:01Z
+culmination=68
+
+[[observations]]
+satellite="NOAA 18"
+start_time=2024-07-16T21:03:17Z
+end_time=2024-07-16T21:15:54Z
+culmination=47
+
+[[observations]]
+satellite="NOAA 19"
+start_time=2024-07-16T21:41:24Z
+end_time=2024-07-16T21:51:42Z
+culmination=17
+
+[[observations]]
+satellite="ISS"
+start_time=2024-07-16T22:29:38Z
+end_time=2024-07-16T22:40:12Z
+culmination=14
+
+[[observations]]
+satellite="NOAA 18"
+start_time=2024-07-16T22:44:42Z
+end_time=2024-07-16T22:56:10Z
+culmination=25
+
+[[observations]]
+satellite="ISS"
+start_time=2024-07-17T00:16:27Z
+end_time=2024-07-17T00:31:32Z
+culmination=57
+
+[[observations]]
+satellite="FENGYUN 3A"
+start_time=2024-07-17T02:10:26Z
+end_time=2024-07-17T02:23:24Z
+culmination=77
+
+[[observations]]
+satellite="METOP-B"
+start_time=2024-07-17T07:46:54Z
+end_time=2024-07-17T07:55:20Z
+culmination=12
+
+[[observations]]
+satellite="NOAA 19"
+start_time=2024-07-17T08:19:54Z
+end_time=2024-07-17T08:31:30Z
+culmination=26
+
+[[observations]]
+satellite="METOP-B"
+start_time=2024-07-17T09:25:27Z
+end_time=2024-07-17T09:38:19Z
+culmination=86
+
+[[observations]]
+satellite="NOAA 19"
+start_time=2024-07-17T10:00:12Z
+end_time=2024-07-17T10:12:46Z
+culmination=44
+
+[[observations]]
+satellite="NOAA 18"
+start_time=2024-07-17T11:03:59Z
+end_time=2024-07-17T11:17:05Z
+culmination=63
+
+[[observations]]
+satellite="FENGYUN 3A"
+start_time=2024-07-17T13:35:03Z
+end_time=2024-07-17T13:47:28Z
+culmination=42
+
