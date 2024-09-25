@@ -1,0 +1,27 @@
+# configuration de la station sol
+[station]
+name = "GEII Toulon"
+latitude = 43.1362
+longitude = 6.0198
+altitude = 5 
+locator = "JN33ad"
+
+[receiver]
+name = 'pluto'
+ip = '192.168.0.183'
+api = 'Soapy'
+
+[rotator]
+name = 'rotor1'
+ip = '192.168.0.124'
+port = '3121'
+
+[directories]
+base_dir = "."  
+recording_output_dir= "output"
+tle_dir = "TLE"
+planification_dir = "planification"
+
+[tle]
+max_days = 7
+tle_download_address ='https://celestrak.org/NORAD/elements/gp.php' 
