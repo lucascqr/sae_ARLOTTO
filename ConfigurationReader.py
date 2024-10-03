@@ -145,5 +145,4 @@ if __name__ == "__main__":
 
     configuration_reader.print_satellites()
     
-    sat = Satellite()
     
