@@ -22,13 +22,14 @@ class Plannifier():
         self.observations = observations
 
     def planning_maker(self):
-        self.observations.state = idle
+        for i in range(len(self.observations)):
+            self.observations[i].state = idle
         lastSelected = 0
         i = 0
         while i < len(self.observations):
 
             if self.observations[i].state == idle or self.observations[i].state == selected:
-                if self.observations[i].visibilityWindow[end_time] < self.observations[i+1].visibilityWindow[start_time]:
+                if self.observations[i].visibility_window[end_time] < self.observations[i+1].visibility_window[start_time]:
                     self.observations[i].state = selected
                     lastSelected = i
                 else:
@@ -41,11 +42,11 @@ class Plannifier():
                         self.observations[i+1].state = selected
                         lastSelected = i+1
                         if (i > 0) and not (self.observations[i].state == overlaps_previous) and not (self.observations[i].state == selected):
-                            if self.observations[i-1].visibilityWindow[end_time] < self.observations[i+1].visibilityWindow[start_time]:
+                            if self.observations[i-1].visibility_window[end_time] < self.observations[i+1].visibility_window[start_time]:
                                 self.observations[i-1].state = selected
 
             elif self.observations[i].state == overlaps_previous:
-                if self.observations[lastSelected].visibilityWindow[end_time] < self.observations[i+1].visibilityWindow[start_time]:
+                if self.observations[lastSelected].visibility_window[end_time] < self.observations[i+1].visibility_window[start_time]:
                     lastSelected = i+1
                     self.observations[i+1].state = selected
                 else:
