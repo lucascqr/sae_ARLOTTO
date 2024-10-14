@@ -8,6 +8,7 @@ from ConfigurationReader import ConfigurationReader, Station, Satellite
 from skyfield.api import load, wgs84
 from TLE_Loader import Tle_Loader, VisibilyWindowComputer
 import logging
+
 idle = 0
 selected = 1
 excluded = 2
