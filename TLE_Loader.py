@@ -23,6 +23,7 @@ class Tle_Loader ():
                 sat.tle = load.tle_file(self.tle_dir + '/' + name)
             else:
                 sat.tle = None
+                print("fichier TLE trop ancien")
 
     def printTle(self):
         for sat in self.satellites:
@@ -53,7 +54,7 @@ class VisibilyWindowComputer ():
 
     def computeVisibilityWindow(self, satellite):
         if satellite.tle:
-            print(satellite.name)
+            # print(satellite.name)
             bluffton = wgs84.latlon(
                 self.station.latitude, self.station.longitude)
             t0, t1 = self.start_time,  self.end_time
@@ -64,7 +65,7 @@ class VisibilyWindowComputer ():
             visibility_window_open = False
             for ti, event in zip(t, events):
                 name = event_names[event]
-                print(ti.utc_strftime('%Y %b %d %H:%M:%S'), name)
+                # print(ti.utc_strftime('%Y %b %d %H:%M:%S'), name)
 
                 if name == 'rise':
                     t_rise = ti
@@ -75,7 +76,7 @@ class VisibilyWindowComputer ():
                     topocentric_position = (
                         satellite.tle[0] - bluffton).at(t_culminate)
                     alt, az, distance = topocentric_position.altaz()
-                    print(f"Angle de culmination : {alt.degrees:.2f}°")
+                    # print(f"Angle de culmination : {alt.degrees:.2f}°")
                 else:
                     t_set = ti
 
