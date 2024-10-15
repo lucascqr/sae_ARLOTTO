@@ -23,7 +23,8 @@ class Tle_Loader ():
                 sat.tle = load.tle_file(self.tle_dir + '/' + name)
             else:
                 sat.tle = None
-                print("fichier TLE trop ancien")
+                print(
+                    "Fichier TLE", self.satellites.name, " trop ancien ou inexistant")
 
     def printTle(self):
         for sat in self.satellites:
@@ -54,7 +55,6 @@ class VisibilyWindowComputer ():
 
     def computeVisibilityWindow(self, satellite):
         if satellite.tle:
-            # print(satellite.name)
             bluffton = wgs84.latlon(
                 self.station.latitude, self.station.longitude)
             t0, t1 = self.start_time,  self.end_time
@@ -65,7 +65,6 @@ class VisibilyWindowComputer ():
             visibility_window_open = False
             for ti, event in zip(t, events):
                 name = event_names[event]
-                # print(ti.utc_strftime('%Y %b %d %H:%M:%S'), name)
 
                 if name == 'rise':
                     t_rise = ti
@@ -76,7 +75,7 @@ class VisibilyWindowComputer ():
                     topocentric_position = (
                         satellite.tle[0] - bluffton).at(t_culminate)
                     alt, az, distance = topocentric_position.altaz()
-                    # print(f"Angle de culmination : {alt.degrees:.2f}°")
+
                 else:
                     t_set = ti
 
@@ -91,7 +90,6 @@ class VisibilyWindowComputer ():
             self.computeVisibilityWindow(satellite)
             for window in satellite.visibility_windows:
                 observ = Observation(satellite, window)
-                # print ('nom',satellite.name, window  )
                 self.observations.append(observ)
 
         self.observations.sort(key=lambda obs: obs.visibility_window[0])
@@ -125,5 +123,4 @@ if __name__ == '__main__':
     computer = VisibilyWindowComputer(
         config.satellites, config.station, start_time, stop_time)
     computer.compute_Observation()
-    # config.satellites[0].print_visibility_windows()
     computer.print_observation()
