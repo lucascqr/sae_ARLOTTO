@@ -8,6 +8,8 @@ from ConfigurationReader import ConfigurationReader
 from skyfield.api import load, wgs84
 from TLE_Loader import Tle_Loader, VisibilyWindowComputer
 import matplotlib.pyplot as plt
+import os
+from datetime import datetime
 
 IDLE = 0
 SELECTED = 1
@@ -27,35 +29,35 @@ class Plannifier ():
         for observation in self.observations:
             observation.state = IDLE
 
-        LAST_SELECTED = None
+        lastSelected = None
 
         for i, observation in enumerate(self.observations[:-1]):
             next_observation = self.observations[i + 1]
             if observation.state == IDLE or observation.state == SELECTED:
                 if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
                     observation.state = SELECTED
-                    LAST_SELECTED = i
+                    lastSelected = i
                 else:
                     if observation.satellite.priority < next_observation.satellite.priority:
                         observation.state = SELECTED
                         next_observation.state = OVERLAPS_PREVIOUS
-                        LAST_SELECTED = i
+                        lastSelected = i
                     else:
                         observation.state = EXCLUDED
                         next_observation.state = SELECTED
-                        LAST_SELECTED = i+1
+                        lastSelected = i+1
                         if i > 0 and observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
                             if self.observations[i - 1].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
                                 self.observations[i - 1].state = SELECTED
             elif observation.state == OVERLAPS_PREVIOUS:
-                if self.observations[LAST_SELECTED].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                    LAST_SELECTED = i+1
+                if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                    lastSelected = i+1
                     next_observation.state = SELECTED
                 else:
-                    if next_observation.satellite.priority < self.observations[LAST_SELECTED].satellite.priority:
+                    if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
                         next_observation.state = SELECTED
-                        self.observations[LAST_SELECTED].state = EXCLUDED
-                        LAST_SELECTED = i+1
+                        self.observations[lastSelected].state = EXCLUDED
+                        lastSelected = i+1
                     else:
                         next_observation.state = OVERLAPS_PREVIOUS
         self.Planning_append()
@@ -75,6 +77,11 @@ class Plannifier ():
 
     def plot_planning(self):
         plt.figure(figsize=(60, 2))
+        plt.plot([], [], color='r', marker='|', linestyle='-',
+                 label='Fenêtres sélectionnées')
+        plt.plot([], [], color='b', marker='|',
+                 linestyle='-', label='Fenêtres exclues')
+        plt.legend()
         for sat in self.observations:
             start_time = sat.visibility_window[START_TIME]
             end_time = sat.visibility_window[END_TIME]
@@ -91,7 +98,23 @@ class Plannifier ():
         plt.xlabel('Temps')
         plt.ylabel('Priorité du Satellite')
         plt.title('Fenêtres de Visibilité des Satellites')
-        plt.legend()
+
+        # Obtenir l'heure et la date actuelles
+        current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        # Obtenir le répertoire courant
+        current_directory = os.getcwd()
+        # Définir un sous-dossier dans le répertoire courant
+        directory = os.path.join(current_directory, "planning")
+        filename = f"planning_{current_time}.png"
+        # Vérifier si le sous-dossier existe, sinon le créer
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        # Combiner le sous-dossier et le nom du fichier
+        full_path = os.path.join(directory, filename)
+        # Sauvegarde du graphique dans le sous-dossier
+        plt.savefig(full_path)
+
+        # Affichage
         plt.show()
 
 
