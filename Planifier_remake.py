@@ -76,7 +76,7 @@ class Plannifier ():
             print(sat.satellite.name)
 
     def plot_planning(self):
-        plt.figure(figsize=(60, 2))
+        plt.figure(figsize=(100, 2))
         plt.plot([], [], color='r', marker='|', linestyle='-',
                  label='Fenêtres sélectionnées')
         plt.plot([], [], color='b', marker='|',
