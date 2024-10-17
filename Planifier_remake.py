@@ -78,6 +78,7 @@ class Plannifier ():
             print(sat.satellite.name)
 
     def plot_planning(self):
+        ymax = len(self.satellites)
         plt.figure(figsize=(150, 6))
         plt.plot([], [], color='r', marker='|', linestyle='-',
                  label='Fenêtres sélectionnées')
@@ -103,8 +104,8 @@ class Plannifier ():
                          ha='center',  # Centre le texte horizontalement
                          fontsize=8,
                          color='black')
-                plt.vlines(start_time.utc_datetime(), 0, 25, 'k', 'dashed')
-                plt.vlines(end_time.utc_datetime(), 0, 25, 'k', 'dashed')
+                plt.vlines(start_time.utc_datetime(), 0, ymax, 'k', 'dashed')
+                plt.vlines(end_time.utc_datetime(), 0, ymax, 'k', 'dashed')
             else:
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
