@@ -33,6 +33,7 @@ class Plannifier ():
 
         for i, observation in enumerate(self.observations[:-1]):
             next_observation = self.observations[i + 1]
+            previous_observation = self.observations[i-1]
             if observation.state == IDLE or observation.state == SELECTED:
                 if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
                     observation.state = SELECTED
@@ -46,9 +47,9 @@ class Plannifier ():
                         observation.state = EXCLUDED
                         next_observation.state = SELECTED
                         lastSelected = i+1
-                        if i > 0 and observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
-                            if self.observations[i - 1].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                                self.observations[i - 1].state = SELECTED
+                        if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
+                            if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                                previous_observation.state = SELECTED
             elif observation.state == OVERLAPS_PREVIOUS:
                 if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
                     lastSelected = i+1

@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
 """
+Created on Thu Oct 17 10:45:55 2024
+
+@author: lucas
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Oct 17 08:18:18 2024
 
 @author: anoel
 """
+
 import toml
 from skyfield.api import load, wgs84
 from ConfigurationReader import ConfigurationReader
 from skyfield.api import load, wgs84
 from TLE_Loader import Tle_Loader, VisibilyWindowComputer
 import matplotlib.pyplot as plt
-
 IDLE = 0
 SELECTED = 1
 EXCLUDED = 2
@@ -212,7 +219,7 @@ class Plannifier ():
         for i, observation in enumerate(self.observations[:-1]):
             next_observation = self.observations[i + 1]
             previous_observation = self.observations[i-1]
-            if observation.state == IDLE or observation.state == SELECTED:
+            if observation.state == IDLE:
                 if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
                     observation.state = SELECTED
                     LAST_SELECTED = i
@@ -221,6 +228,14 @@ class Plannifier ():
                         observation.state = SELECTED
                         next_observation.state = OVERLAPS_PREVIOUS
                         LAST_SELECTED = i
+                    else:
+                        observation.state = EXCLUDED
+                        next_observation.state = SELECTED
+                        LAST_SELECTED = i+1
+            elif observation.state == SELECTED:
+                if observation.visibility_window[END_TIME] > next_observation.visibility_window[START_TIME]:
+                    if observation.satellite.priority < next_observation.satellite.priority:
+                        next_observation.state = OVERLAPS_PREVIOUS
                     else:
                         observation.state = EXCLUDED
                         next_observation.state = SELECTED
