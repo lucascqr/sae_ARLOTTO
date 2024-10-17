@@ -21,8 +21,9 @@ END_TIME = 1
 
 
 class Plannifier ():
-    def __init__(self, observations):
+    def __init__(self, observations, satellites):
         self.observations = observations
+        self.satellites = satellites
         self.planning = []
 
     def Planning_Maker(self):
@@ -92,10 +93,11 @@ class Plannifier ():
                          [priority, priority],
                          marker='|', linestyle='-', color='r')
                 # Calcul du milieu entre start_time et end_time pour centrer le texte
-                mid_time = start_time.utc_datetime() + (end_time.utc_datetime() - start_time.utc_datetime()) / 2
+                mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
+                                                        start_time.utc_datetime()) / 2
 
                 # Ajout du texte centré au-dessus de la ligne
-                plt.text(x=mid_time, 
+                plt.text(x=mid_time,
                          y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
                          s=sat.satellite.name,
                          ha='center',  # Centre le texte horizontalement
@@ -149,7 +151,7 @@ if __name__ == '__main__':
     computer.compute_Observation()
     # config.satellites[0].print_visibility_windows()
     computer.print_observation()
-    planning = Plannifier(computer.observations)
+    planning = Plannifier(computer.observations, config.satellites)
     planning.Planning_Maker()
     planning.print_observation_states()
     planning.print_planning()
