@@ -74,27 +74,25 @@ class Plannifier ():
             print(sat.satellite.name)
 
     def plot_planning(self):
-        for tle in self.observations:
-            if tle.satellites.tle:
-                plt.figure(figsize=(18, 10))
-                for sat in self.observations:
-                    start_time = sat.visibility_window[START_TIME]
-                    end_time = sat.visibility_window[END_TIME]
-                    priority = sat.satellite.priority
-                    if sat.state == 1:
-                        plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
-                                 [priority, priority],
-                                 marker='|', linestyle='-', color='r')
-                    else:
-                        plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
-                                 [priority, priority],
-                                 marker='|', linestyle='-', color='b')
+        plt.figure(figsize=(60, 2))
+        for sat in self.observations:
+            start_time = sat.visibility_window[START_TIME]
+            end_time = sat.visibility_window[END_TIME]
+            priority = sat.satellite.priority
+            if sat.state == 1:
+                plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
+                         [priority, priority],
+                         marker='|', linestyle='-', color='r')
+            else:
+                plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
+                         [priority, priority],
+                         marker='|', linestyle='-', color='b')
 
-                plt.xlabel('Temps')
-                plt.ylabel('Priorité du Satellite')
-                plt.title('Fenêtres de Visibilité des Satellites')
-                plt.legend()
-                plt.show()
+        plt.xlabel('Temps')
+        plt.ylabel('Priorité du Satellite')
+        plt.title('Fenêtres de Visibilité des Satellites')
+        plt.legend()
+        plt.show()
 
 
 if __name__ == '__main__':
@@ -102,6 +100,7 @@ if __name__ == '__main__':
     satellites_file = 'toml/satellites.toml'
 
     config = ConfigurationReader(station_file, satellites_file)
+    # config.set_priority()
     loader = Tle_Loader(config.satellites,
                         config.directories.tle_dir, config.tle.max_days)
     loader.tleLoader()
