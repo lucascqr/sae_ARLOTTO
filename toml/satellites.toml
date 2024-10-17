@@ -259,26 +259,4 @@ record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si 
 bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
 doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
 
-[[satellites]]
-
-name = "FREGAT DEB"
-min_elevation  = 5
-min_culmination = 10 
-frequency = 137.100000
-demodulation = 'none' # 'none','fm','ssb',etc...
-record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
-bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
-doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
-
-[[satellites]]
-
-name = "SAKURA"
-min_elevation  = 5
-min_culmination = 10 
-frequency = 137.100000
-demodulation = 'none' # 'none','fm','ssb',etc...
-record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
-bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
-doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
-
 ###########################################

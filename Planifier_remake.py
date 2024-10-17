@@ -77,7 +77,7 @@ class Plannifier ():
             print(sat.satellite.name)
 
     def plot_planning(self):
-        plt.figure(figsize=(100, 2))
+        plt.figure(figsize=(150, 6))
         plt.plot([], [], color='r', marker='|', linestyle='-',
                  label='Fenêtres sélectionnées')
         plt.plot([], [], color='b', marker='|',
@@ -91,6 +91,18 @@ class Plannifier ():
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
                          marker='|', linestyle='-', color='r')
+                # Calcul du milieu entre start_time et end_time pour centrer le texte
+                mid_time = start_time.utc_datetime() + (end_time.utc_datetime() - start_time.utc_datetime()) / 2
+
+                # Ajout du texte centré au-dessus de la ligne
+                plt.text(x=mid_time, 
+                         y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
+                         s=sat.satellite.name,
+                         ha='center',  # Centre le texte horizontalement
+                         fontsize=8,
+                         color='black')
+                plt.vlines(start_time.utc_datetime(), 0, 25, 'k', 'dashed')
+                plt.vlines(end_time.utc_datetime(), 0, 25, 'k', 'dashed')
             else:
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
