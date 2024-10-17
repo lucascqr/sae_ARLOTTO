@@ -74,7 +74,7 @@ class Plannifier ():
             print(sat.satellite.name)
 
     def plot_planning(self):
-        plt.figure(figsize=(18, 10))
+        plt.figure(figsize=(50, 2))
         for sat in self.observations:
             start_time = sat.visibility_window[START_TIME]
             end_time = sat.visibility_window[END_TIME]
