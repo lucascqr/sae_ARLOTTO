@@ -24,7 +24,7 @@ class Tle_Loader ():
             else:
                 sat.tle = None
                 print(
-                    "Fichier TLE", self.satellites.name, " trop ancien ou inexistant")
+                    "Fichier TLE", sat.name, " trop ancien ou inexistant")
 
     def printTle(self):
         for sat in self.satellites:
