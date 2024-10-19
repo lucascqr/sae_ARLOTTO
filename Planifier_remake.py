@@ -96,6 +96,10 @@ class Plannifier ():
                     previous_observation = self.observations[i]
                     
             nbr_passage = 1
+            if modifications == 0:
+                break
+            
+            modifications = 0
                 
             for i, observation in enumerate(self.observations[:-1]):
                 if observation.state == SELECTED:
@@ -113,6 +117,7 @@ class Plannifier ():
                             tested_observation = self.observations[k]
                             if (tested_observation.visibility_window[START_TIME]>minimun_start_time and tested_observation.visibility_window[END_TIME]<maximun_end_time):
                                 tested_observation.state = IDLE
+                                modifications += 1
                                 
             for i, observation in enumerate(self.observations[:]):
                 if observation.state not in {SELECTED, IDLE}:
