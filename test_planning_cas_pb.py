@@ -16,6 +16,8 @@ SELECTED = 1
 EXCLUDED = 2
 OVERLAPS_PREVIOUS = 3
 ADDABLE = 4
+SCHEDULED = 5
+SUPPRESSED = 6
 
 START_TIME = 0
 END_TIME = 1
@@ -33,63 +35,79 @@ class Plannifier ():
 
         lastSelected = None
         modifications = 0
-        addable_list = []
-
-        for i, observation in enumerate(self.observations[:-1]):
-            next_observation = self.observations[i + 1]
-            previous_observation = self.observations[i-1]
-            if observation.state == IDLE or observation.state == SELECTED:
-                if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                    observation.state = SELECTED
-                    lastSelected = i
-                else:
-                    if observation.satellite.priority < next_observation.satellite.priority:
-                        observation.state = SELECTED
-                        next_observation.state = OVERLAPS_PREVIOUS
-                        lastSelected = i
-                    else:
-                        observation.state = EXCLUDED
-                        next_observation.state = SELECTED
-                        lastSelected = i+1
-                        if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
-                            if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                                previous_observation.state = SELECTED
-            elif observation.state == OVERLAPS_PREVIOUS:
-                if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                    lastSelected = i+1
-                    next_observation.state = SELECTED
-                else:
-                    if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
-                        next_observation.state = SELECTED
-                        self.observations[lastSelected].state = EXCLUDED
-                        lastSelected = i+1
-                    else:
-                        next_observation.state = OVERLAPS_PREVIOUS
-                        
-        # while True :
-        for i, observation in enumerate(self.observations[:-1]):
-            if observation.state == SELECTED:
-                minimun_start_time = observation.visibility_window[END_TIME]
-                for j, observation in enumerate(self.observations[:-1], i+1):
-                    if j == len(self.observations)-1:
-                        break 
-                    elif j<=len(self.observations)-1:
-                        element_associe = self.observations[j]
-                        if element_associe.state == SELECTED:
-                            maximun_end_time = element_associe.visibility_window[START_TIME]
-                            break
-                if i+1<j:
-                    for k in range(i+1, j):
-                        tested_observation = self.observations[k]
-                        if (tested_observation.visibility_window[START_TIME]>minimun_start_time and tested_observation.visibility_window[END_TIME]<maximun_end_time):
-                            tested_observation.state = ADDABLE
-                            #addable_list.append(k)
+        nbr_passage = 0
+        # addable_list = []
+        while True :
+            for i, observation in enumerate(self.observations[:-1]):
+                if observation.state != SUPPRESSED :
+                    if nbr_passage == 0 :
+                        next_observation = self.observations[i+1]
+                        previous_observation = self.observations[i-1]
+                    else :
+                        for j, observation in enumerate(self.observations[:-1], i+1):
+                            if j >= len(self.observations)-1:
+                                break 
+                            elif j<len(self.observations)-1:
+                                if self.observations[j].state==SELECTED or self.observations[j].state==IDLE:
+                                    next_observation = self.observations[j]
+                                    break
                             
+                    if observation.state == IDLE or observation.state == SELECTED:
+                        if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                            observation.state = SELECTED
+                            lastSelected = i
+                        else:
+                            if observation.satellite.priority < next_observation.satellite.priority:
+                                observation.state = SELECTED
+                                next_observation.state = OVERLAPS_PREVIOUS
+                                lastSelected = i
+                            else:
+                                observation.state = EXCLUDED
+                                next_observation.state = SELECTED
+                                lastSelected = i+1
+                                if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
+                                    if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                                        previous_observation.state = SELECTED
+                    elif observation.state == OVERLAPS_PREVIOUS:
+                        if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                            lastSelected = i+1
+                            next_observation.state = SELECTED
+                        else:
+                            if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
+                                next_observation.state = SELECTED
+                                self.observations[lastSelected].state = EXCLUDED
+                                lastSelected = i+1
+                            else:
+                                next_observation.state = OVERLAPS_PREVIOUS
+                    previous_observation = self.observations[i]
+            nbr_passage += 1
             
-            # if modifications == 0 :
-            #     break
+                
+            for i, observation in enumerate(self.observations[:-1]):
+                if observation.state == SELECTED:
+                    minimun_start_time = observation.visibility_window[END_TIME]
+                    for j, observation in enumerate(self.observations[:-1], i+1):
+                        if j >= len(self.observations)-1:
+                            break 
+                        elif j<len(self.observations)-1:
+                            element_associe = self.observations[j]
+                            if element_associe.state == SELECTED:
+                                maximun_end_time = element_associe.visibility_window[START_TIME]
+                                break
+                    if i+1<j:
+                        for k in range(i+1, j):
+                            tested_observation = self.observations[k]
+                            if (tested_observation.visibility_window[START_TIME]>minimun_start_time and tested_observation.visibility_window[END_TIME]<maximun_end_time):
+                                tested_observation.state = IDLE
+                                
+            for i, observation in enumerate(self.observations[:-1]):
+                if observation.state != SELECTED or observation.state != IDLE:
+                    observation.state = SUPPRESSED
+            
+            if modifications == 0:
+                break
+
         
-        #print(len(self.observations))
         self.Planning_append()
 
     def print_observation_states(self):
