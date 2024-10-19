@@ -16,8 +16,7 @@ SELECTED = 1
 EXCLUDED = 2
 OVERLAPS_PREVIOUS = 3
 ADDABLE = 4
-SCHEDULED = 5
-SUPPRESSED = 6
+SUPPRESSED = 5
 
 START_TIME = 0
 END_TIME = 1
@@ -38,50 +37,65 @@ class Plannifier ():
         nbr_passage = 0
         # addable_list = []
         while True :
+            modifications = 0
             for i, observation in enumerate(self.observations[:-1]):
-                if observation.state != SUPPRESSED :
+                if observation.state in ({IDLE} if nbr_passage else {IDLE, SELECTED, EXCLUDED, OVERLAPS_PREVIOUS}) :
                     if nbr_passage == 0 :
-                        next_observation = self.observations[i+1]
+                        j=i+1
+                        next_observation = self.observations[j]
                         previous_observation = self.observations[i-1]
                     else :
-                        for j, observation in enumerate(self.observations[:-1], i+1):
+                        for j, test in enumerate(self.observations[:-1], i+1):
                             if j >= len(self.observations)-1:
                                 break 
                             elif j<len(self.observations)-1:
-                                if self.observations[j].state==SELECTED or self.observations[j].state==IDLE:
+                                if self.observations[j].state==IDLE:
+                                    print("i = " + str(i) + " j = " + str(j))
                                     next_observation = self.observations[j]
                                     break
                             
-                    if observation.state == IDLE or observation.state == SELECTED:
+                    if observation.state in ({IDLE} if nbr_passage else {SELECTED, IDLE}):
                         if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                            observation.state = SELECTED
+                            if observation.state != SELECTED:
+                                modifications += 1
+                                observation.state = SELECTED
                             lastSelected = i
                         else:
                             if observation.satellite.priority < next_observation.satellite.priority:
-                                observation.state = SELECTED
+                                if observation.state != SELECTED:
+                                    modifications += 1
+                                    observation.state = SELECTED
                                 next_observation.state = OVERLAPS_PREVIOUS
                                 lastSelected = i
                             else:
                                 observation.state = EXCLUDED
-                                next_observation.state = SELECTED
-                                lastSelected = i+1
+                                if next_observation.state != SELECTED:
+                                    modifications += 1
+                                    next_observation.state = SELECTED
+                                lastSelected = j
                                 if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
                                     if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                                        previous_observation.state = SELECTED
+                                        if previous_observation.state != SELECTED:
+                                            modifications += 1
+                                            previous_observation.state = SELECTED
                     elif observation.state == OVERLAPS_PREVIOUS:
                         if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                            lastSelected = i+1
-                            next_observation.state = SELECTED
+                            lastSelected = j
+                            if next_observation.state != SELECTED:
+                                modifications += 1
+                                next_observation.state = SELECTED
                         else:
                             if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
-                                next_observation.state = SELECTED
+                                if next_observation.state != SELECTED:
+                                    modifications += 1
+                                    next_observation.state = SELECTED
                                 self.observations[lastSelected].state = EXCLUDED
-                                lastSelected = i+1
+                                lastSelected = j
                             else:
                                 next_observation.state = OVERLAPS_PREVIOUS
                     previous_observation = self.observations[i]
-            nbr_passage += 1
-            
+                    
+            nbr_passage = 1
                 
             for i, observation in enumerate(self.observations[:-1]):
                 if observation.state == SELECTED:
@@ -100,13 +114,12 @@ class Plannifier ():
                             if (tested_observation.visibility_window[START_TIME]>minimun_start_time and tested_observation.visibility_window[END_TIME]<maximun_end_time):
                                 tested_observation.state = IDLE
                                 
-            for i, observation in enumerate(self.observations[:-1]):
-                if observation.state != SELECTED or observation.state != IDLE:
+            for i, observation in enumerate(self.observations[:]):
+                if observation.state not in {SELECTED, IDLE}:
                     observation.state = SUPPRESSED
             
             if modifications == 0:
                 break
-
         
         self.Planning_append()
 
@@ -184,7 +197,7 @@ class Plannifier ():
         current_directory = os.getcwd()
         # Définir un sous-dossier dans le répertoire courant
         directory = os.path.join(current_directory, "planning")
-        filename = f"planning_{current_time}.png"
+        filename = f"planning_test_{current_time}.png"
         # Vérifier si le sous-dossier existe, sinon le créer
         if not os.path.exists(directory):
             os.makedirs(directory)
@@ -202,21 +215,21 @@ if __name__ == '__main__':
     satellites_file = 'toml/satellites.toml'
 
     config = ConfigurationReader(station_file, satellites_file)
-    # config.set_priority()
+    #config.set_priority()
     loader = Tle_Loader(config.satellites,
                         config.directories.tle_dir, config.tle.max_days)
     loader.tleLoader()
-    # loader.printTle()
+    #loader.printTle()
     ts = load.timescale()
     start_time = ts.now()
     stop_time = ts.now() + 1
     computer = VisibilyWindowComputer(
         config.satellites, config.station, start_time, stop_time)
     computer.compute_Observation()
-    # config.satellites[0].print_visibility_windows()
+    #config.satellites[0].print_visibility_windows()
     #computer.print_observation()
     planning = Plannifier(computer.observations, config.satellites)
     planning.Planning_Maker()
-    #planning.print_observation_states()
+    planning.print_observation_states()
     #planning.print_planning()
     planning.plot_planning()
