@@ -250,7 +250,96 @@ doppler_track = 'off'  # on si il faut corriger la fréquence de reception penda
 
 [[satellites]]
 
-name = "NOAA 19"
+name = "TIANZHOU-7 "
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "SHENZHOU-18"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "CYGNUS NG-21 "
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "COSMOGIRLSAT"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+
+[[satellites]]
+
+name = "SOYUZ-MS 26"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "DORA"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "SPACEBEE-6"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "SPACEBEE-172"
+min_elevation  = 5
+min_culmination = 10 
+frequency = 137.100000
+demodulation = 'none' # 'none','fm','ssb',etc...
+record_format = 'c32' #  exemple c32 : iq complex 32bits, cs16, cu8 , ou wav si demodulation!= none    
+bandwidth = 0.5 #   demodulation ou iq bandwitdh en MHz
+doppler_track = 'off'  # on si il faut corriger la fréquence de reception pendant l'enregistrement
+
+[[satellites]]
+
+name = "SPACEBEE-170"
 min_elevation  = 5
 min_culmination = 10 
 frequency = 137.100000
