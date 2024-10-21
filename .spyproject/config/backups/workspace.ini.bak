@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['ConfigurationReader.py', 'Download_TLE.py', 'Planifier_remake.py', 'test_planning.py', 'TLE_Loader.py', 'algo.py', 'test1.py']
+recent_files = ['ConfigurationReader.py', 'Download_TLE.py', 'Planifier_remake.py', 'TLE_Loader.py', 'Planifier_remake_addable_window.py']
 
 [main]
 version = 0.2.0
