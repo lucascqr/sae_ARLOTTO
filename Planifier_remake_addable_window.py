@@ -65,31 +65,30 @@ class Plannifier ():
                         lastSelected = i+1
                     else:
                         next_observation.state = OVERLAPS_PREVIOUS
-                        
+
         # while True :
         for i, observation in enumerate(self.observations[:-1]):
             if observation.state == SELECTED:
                 minimun_start_time = observation.visibility_window[END_TIME]
                 for j, observation in enumerate(self.observations[:-1], i+1):
                     if j == len(self.observations)-1:
-                        break 
-                    elif j<=len(self.observations)-1:
+                        break
+                    elif j <= len(self.observations)-1:
                         element_associe = self.observations[j]
                         if element_associe.state == SELECTED:
                             maximun_end_time = element_associe.visibility_window[START_TIME]
                             break
-                if i+1<j:
+                if i+1 < j:
                     for k in range(i+1, j):
                         tested_observation = self.observations[k]
-                        if (tested_observation.visibility_window[START_TIME]>minimun_start_time and tested_observation.visibility_window[END_TIME]<maximun_end_time):
+                        if (tested_observation.visibility_window[START_TIME] > minimun_start_time and tested_observation.visibility_window[END_TIME] < maximun_end_time):
                             tested_observation.state = ADDABLE
-                            #addable_list.append(k)
-                            
-            
+                            # addable_list.append(k)
+
             # if modifications == 0 :
             #     break
-        
-        #print(len(self.observations))
+
+        # print(len(self.observations))
         self.Planning_append()
 
     def print_observation_states(self):
@@ -143,18 +142,18 @@ class Plannifier ():
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
                          marker='|', linestyle='-', color='b')
-                
+
             # Calcul du milieu entre start_time et end_time pour centrer le texte
             mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
                                                     start_time.utc_datetime()) / 2
 
             # Ajout du texte centré au-dessus de la ligne
             plt.text(x=mid_time,
-                      y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
-                      s=count,
-                      ha='center',  # Centre le texte horizontalement
-                      fontsize=8,
-                      color='black')
+                     y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
+                     s=count,
+                     ha='center',  # Centre le texte horizontalement
+                     fontsize=8,
+                     color='black')
             count += 1
 
         plt.xlabel('Temps')
@@ -167,7 +166,7 @@ class Plannifier ():
         current_directory = os.getcwd()
         # Définir un sous-dossier dans le répertoire courant
         directory = os.path.join(current_directory, "planning")
-        filename = f"planning_{current_time}.png"
+        filename = f"planning_addable_windows{current_time}.png"
         # Vérifier si le sous-dossier existe, sinon le créer
         if not os.path.exists(directory):
             os.makedirs(directory)
