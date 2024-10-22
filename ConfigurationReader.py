@@ -66,7 +66,7 @@ class ConfigurationReader:
         i = 0
         for sat in self.satellites:
             sat.priority = i
-            print(sat.name, sat.priority)
+            # print(sat.name, sat.priority)
             i = i+1
 
 

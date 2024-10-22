@@ -47,7 +47,7 @@ class Plannifier ():
                     else:
                         for j in range(i+1, len(self.observations)-1):
                             if self.observations[j].state == IDLE:
-                                print("i = " + str(i) + " j = " + str(j))
+                                # print("i = " + str(i) + " j = " + str(j))
                                 next_observation = self.observations[j]
                                 break
 
