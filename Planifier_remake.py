@@ -166,9 +166,6 @@ class Plannifier ():
         # Sauvegarde du graphique dans le sous-dossier
         plt.savefig(full_path)
 
-        # Affichage
-        plt.show()
-
 
 if __name__ == '__main__':
     station_file = 'toml/station.toml'
