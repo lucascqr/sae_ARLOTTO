@@ -16,7 +16,6 @@ SELECTED = 1
 EXCLUDED = 2
 OVERLAPS_PREVIOUS = 3
 ADDABLE = 4
-SUPPRESSED = 5
 
 START_TIME = 0
 END_TIME = 1
@@ -33,12 +32,10 @@ class Plannifier ():
             observation.state = IDLE
 
         lastSelected = None
-        modifications = 0
-        nbr_passage = 0
         # addable_list = []
         while True:
-            modifications = 0
             for i, observation in enumerate(self.observations[:-1]):
+<<<<<<< Updated upstream
                 if observation.state in ({IDLE} if nbr_passage else {IDLE, SELECTED, EXCLUDED, OVERLAPS_PREVIOUS}):
                     if nbr_passage == 0:
                         j = i+1
@@ -56,45 +53,37 @@ class Plannifier ():
                             if observation.state != SELECTED:
                                 modifications += 1
                                 observation.state = SELECTED
+=======
+                next_observation = self.observations[i + 1]
+                previous_observation = self.observations[i-1]
+                if observation.state == IDLE or observation.state == SELECTED:
+                    if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                        observation.state = SELECTED
+                        lastSelected = i
+                    else:
+                        if observation.satellite.priority < next_observation.satellite.priority:
+                            observation.state = SELECTED
+                            next_observation.state = OVERLAPS_PREVIOUS
+>>>>>>> Stashed changes
                             lastSelected = i
                         else:
-                            if observation.satellite.priority < next_observation.satellite.priority:
-                                if observation.state != SELECTED:
-                                    modifications += 1
-                                    observation.state = SELECTED
-                                next_observation.state = OVERLAPS_PREVIOUS
-                                lastSelected = i
-                            else:
-                                observation.state = EXCLUDED
-                                if next_observation.state != SELECTED:
-                                    modifications += 1
-                                    next_observation.state = SELECTED
-                                lastSelected = j
-                                if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
-                                    if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                                        if previous_observation.state != SELECTED:
-                                            modifications += 1
-                                            previous_observation.state = SELECTED
-                    elif observation.state == OVERLAPS_PREVIOUS:
-                        if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                            lastSelected = j
-                            if next_observation.state != SELECTED:
-                                modifications += 1
-                                next_observation.state = SELECTED
+                            observation.state = EXCLUDED
+                            next_observation.state = SELECTED
+                            lastSelected = i+1
+                            if i > 0 and previous_observation.state not in {OVERLAPS_PREVIOUS, SELECTED}:
+                                if previous_observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                                    previous_observation.state = SELECTED
+                elif observation.state == OVERLAPS_PREVIOUS:
+                    if self.observations[lastSelected].visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
+                        lastSelected = i+1
+                        next_observation.state = SELECTED
+                    else:
+                        if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
+                            next_observation.state = SELECTED
+                            self.observations[lastSelected].state = EXCLUDED
+                            lastSelected = i+1
                         else:
-                            if next_observation.satellite.priority < self.observations[lastSelected].satellite.priority:
-                                if next_observation.state != SELECTED:
-                                    modifications += 1
-                                    next_observation.state = SELECTED
-                                self.observations[lastSelected].state = EXCLUDED
-                                lastSelected = j
-                            else:
-                                next_observation.state = OVERLAPS_PREVIOUS
-                    previous_observation = self.observations[i]
-
-            nbr_passage = 1
-            if modifications == 0:
-                break
+                            next_observation.state = OVERLAPS_PREVIOUS
 
             addable_window = 0
             for i, observation in enumerate(self.observations[:-1]):
@@ -115,12 +104,20 @@ class Plannifier ():
                                 tested_observation.state = IDLE
                                 addable_window += 1
 
-            for i, observation in enumerate(self.observations[:]):
+            for observation in self.observations[:]:
                 if observation.state not in {SELECTED, IDLE}:
+<<<<<<< Updated upstream
                     observation.state = SUPPRESSED
+=======
+                    self.observations.remove(observation)
+                elif addable_window != 0:
+                    observation.state = IDLE
+>>>>>>> Stashed changes
 
             if addable_window == 0:
                 break
+            else:
+                addable_window = 0
 
         self.Planning_append()
 
@@ -154,39 +151,35 @@ class Plannifier ():
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
                          marker='|', linestyle='-', color='r')
-                # # Calcul du milieu entre start_time et end_time pour centrer le texte
-                # mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
-                #                                         start_time.utc_datetime()) / 2
+                # Calcul du milieu entre start_time et end_time pour centrer le texte
+                mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
+                                                        start_time.utc_datetime()) / 2
 
-                # # Ajout du texte centré au-dessus de la ligne
-                # plt.text(x=mid_time,
-                #           y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
-                #           s=sat.satellite.name,
-                #           ha='center',  # Centre le texte horizontalement
-                #           fontsize=8,
-                #           color='black')
+                # Ajout du texte centré au-dessus de la ligne
+                plt.text(x=mid_time,
+                         y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
+                         s=sat.satellite.name,
+                         ha='center',  # Centre le texte horizontalement
+                         fontsize=8,
+                         color='black')
                 plt.vlines(start_time.utc_datetime(), 0, ymax, 'k', 'dashed')
                 plt.vlines(end_time.utc_datetime(), 0, ymax, 'k', 'dashed')
-            elif sat.state == ADDABLE:
-                plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
-                         [priority, priority],
-                         marker='|', linestyle='-', color='g')
             else:
                 plt.plot([start_time.utc_datetime(), end_time.utc_datetime()],
                          [priority, priority],
                          marker='|', linestyle='-', color='b')
-            # Calcul du milieu entre start_time et end_time pour centrer le texte
-            mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
-                                                    start_time.utc_datetime()) / 2
+            # # Calcul du milieu entre start_time et end_time pour centrer le texte
+            # mid_time = start_time.utc_datetime() + (end_time.utc_datetime() -
+            #                                         start_time.utc_datetime()) / 2
 
-            # Ajout du texte centré au-dessus de la ligne
-            plt.text(x=mid_time,
-                     y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
-                     s=count,
-                     ha='center',  # Centre le texte horizontalement
-                     fontsize=8,
-                     color='black')
-            count += 1
+            # # Ajout du texte centré au-dessus de la ligne
+            # plt.text(x=mid_time,
+            #          y=priority + 0.2,  # Ajustez l'offset pour positionner le texte au-dessus
+            #          s=count,
+            #          ha='center',  # Centre le texte horizontalement
+            #          fontsize=8,
+            #          color='black')
+            # count += 1
 
         plt.xlabel('Temps')
         plt.ylabel('Priorité du Satellite')
