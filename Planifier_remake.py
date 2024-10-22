@@ -35,25 +35,6 @@ class Plannifier ():
         # addable_list = []
         while True:
             for i, observation in enumerate(self.observations[:-1]):
-<<<<<<< Updated upstream
-                if observation.state in ({IDLE} if nbr_passage else {IDLE, SELECTED, EXCLUDED, OVERLAPS_PREVIOUS}):
-                    if nbr_passage == 0:
-                        j = i+1
-                        next_observation = self.observations[j]
-                        previous_observation = self.observations[i-1]
-                    else:
-                        for j in range(i+1, len(self.observations)-1):
-                            if self.observations[j].state == IDLE:
-                                print("i = " + str(i) + " j = " + str(j))
-                                next_observation = self.observations[j]
-                                break
-
-                    if observation.state in ({IDLE} if nbr_passage else {SELECTED, IDLE}):
-                        if observation.visibility_window[END_TIME] < next_observation.visibility_window[START_TIME]:
-                            if observation.state != SELECTED:
-                                modifications += 1
-                                observation.state = SELECTED
-=======
                 next_observation = self.observations[i + 1]
                 previous_observation = self.observations[i-1]
                 if observation.state == IDLE or observation.state == SELECTED:
@@ -64,7 +45,6 @@ class Plannifier ():
                         if observation.satellite.priority < next_observation.satellite.priority:
                             observation.state = SELECTED
                             next_observation.state = OVERLAPS_PREVIOUS
->>>>>>> Stashed changes
                             lastSelected = i
                         else:
                             observation.state = EXCLUDED
@@ -106,13 +86,9 @@ class Plannifier ():
 
             for observation in self.observations[:]:
                 if observation.state not in {SELECTED, IDLE}:
-<<<<<<< Updated upstream
-                    observation.state = SUPPRESSED
-=======
                     self.observations.remove(observation)
                 elif addable_window != 0:
                     observation.state = IDLE
->>>>>>> Stashed changes
 
             if addable_window == 0:
                 break
