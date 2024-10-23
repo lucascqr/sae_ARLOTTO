@@ -32,8 +32,8 @@ class Plannifier ():
             observation.state = IDLE
 
         while True:
-            planning.chooseWindows()
-            addable_windows = planning.determineAddableWindows()
+            self.chooseWindows()
+            addable_windows = self.determineAddableWindows()
             if addable_windows == 0:
                 break
 

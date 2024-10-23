@@ -24,7 +24,7 @@ class Tracker():
         start_alt, start_az, start_distance = self.calcul_position(start_time)
         stop_alt, stop_az, stop_distance = self.calcul_position(stop_time)
 
-        print(stop_az.degrees)
+        print(start_az.degrees, stop_az.degrees)
 
         # envoie des positions de départ à l'antenne pour le placement
 
