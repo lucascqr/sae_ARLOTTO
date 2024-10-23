@@ -24,9 +24,24 @@ class Tracker():
         start_alt, start_az, start_distance = self.calcul_position(start_time)
         stop_alt, stop_az, stop_distance = self.calcul_position(stop_time)
 
-        print(start_az.degrees, stop_az.degrees)
+        print(start_az, stop_az)
 
-        # envoie des positions de départ à l'antenne pour le placement
+        # si l'angle d'arret < 90° et que l'angle de départ est supérieur 270
+        # alors je change l'angle d'arret pour qu'elle aille jusqu'à 450
+        # sinon si l'angle de départ est inférieur à 90 et que l'angle de fin est supérieur à 270
+        # alors je change l'angle de départ entre 360 et 450
+
+        # envoi des positions de départ au moteur
+        # tant que la position du moteur n'est pas égale à la position de départ du satellite
+        # on attends que le moteur se place
+        # while (1):
+        # si l'écart entre temps actuel est le temps de départ est inférieur a 10s
+        # Attends
+        # sinon
+        # on vérifie si l'écart entre az du moteur et l'az de satellite > 10°
+        # si c'est le cas alors on calcul les nouvelles positions et on les envois au moteur
+        # sinon
+        # Attends
 
     def calcul_position(self, time):
         bluffton = wgs84.latlon(
