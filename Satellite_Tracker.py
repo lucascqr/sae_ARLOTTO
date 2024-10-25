@@ -8,12 +8,20 @@ from ConfigurationReader import ConfigurationReader
 from TLE_Loader import Tle_Loader, VisibilyWindowComputer
 from Planifier_remake import Plannifier
 from skyfield.api import load, wgs84
+import socket
+import time
 
 
 class Tracker():
-    def __init__(self, station):
+    def __init__(self, station, rotator):
         self.station = station
+        self.rotator = rotator
         self.tle = None
+        self.socket = None
+
+    def connect_rotcltd(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect((self.rotator.ip, self.rotator.port))
 
     def track_satellite(self, observation):
 
@@ -24,14 +32,11 @@ class Tracker():
         start_alt, start_az, start_distance = self.calcul_position(start_time)
         stop_alt, stop_az, stop_distance = self.calcul_position(stop_time)
 
-        print(start_az, stop_az)
+        start_az.degrees, stop_az.degrees = self.normalize_azimuth(
+            start_az.degrees, stop_az.degrees)  # pas sur du truc
+        self.send_position(start_az.degrees, start_alt.degrees)
 
-        # si l'angle d'arret < 90° et que l'angle de départ est supérieur 270
-        # alors je change l'angle d'arret pour qu'elle aille jusqu'à 450
-        # sinon si l'angle de départ est inférieur à 90 et que l'angle de fin est supérieur à 270
-        # alors je change l'angle de départ entre 360 et 450
-
-        # envoi des positions de départ au moteur
+       # envoi des positions de départ au moteur
         # tant que la position du moteur n'est pas égale à la position de départ du satellite
         # on attends que le moteur se place
         # while (1):
@@ -43,10 +48,41 @@ class Tracker():
         # sinon
         # Attends
 
-    def calcul_position(self, time):
+    def normalize_azimuth(self, azimuth_start, azimuth_stop):
+        if azimuth_stop <= 90 and azimuth_start > 270:
+            azimuth_stop = 360 + azimuth_stop
+            return azimuth_start, azimuth_stop
+
+        elif azimuth_start <= 90 and azimuth_stop > 270:
+            azimuth_start = 360 + azimuth_start
+            return azimuth_start, azimuth_stop
+
+        else:
+            return azimuth_start, azimuth_stop
+        # todo vérifier comment sont calculé les azimuths des satellites durant leurs période de passage
+
+    def send_position(self, azimuth, elevation):
+        command = f'P {azimuth} {elevation}\n'
+        self.socket.sendall(command.encode())
+        response = self.socket.recv(1024).decode()
+        print(f'Received: {response}')
+
+    def get_position(self):
+        command = 'p\n'
+        self.socket.sendall(command.encode())
+        response = self.socket.recv(1024).decode()
+        index = response.find('\n')
+        len_rep = len(response)
+        print(f'Received: {response}')
+
+        azimuth = float(response[0:index])
+        elevation = float(response[index+1:len_rep-1])
+        return azimuth, elevation
+
+    def calcul_position(self, t):
         bluffton = wgs84.latlon(
             self.station.latitude, self.station.longitude)
-        topocentric_position = (self.tle - bluffton).at(time)
+        topocentric_position = (self.tle - bluffton).at(t)
         alt, az, distance = topocentric_position.altaz()
         return alt, az, distance
 
@@ -73,6 +109,7 @@ if __name__ == "__main__":
     # planning.plot_planning()
     # print(planning.observations[0].visibility_window[0])
     # print(planning.planning[0].visibility_window[0])
-    tracker = Tracker(config.station)
+    tracker = Tracker(config.station, config.rotator)
     for obs in planning.planning:
         tracker.track_satellite(obs)
+    # tracker.connect_rotcltd()
