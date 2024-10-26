@@ -127,12 +127,12 @@ class VisibilyWindowComputer ():
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
                                   current_time.utc.hour, current_time.utc.minute + 1)
 
-        self.plot_azimuth(azimuths, times)
+        self.plot_azimuth(azimuths, times, observation.satellite.name)
 
-    def plot_azimuth(self, azimuths, times):
+    def plot_azimuth(self, azimuths, times, name):
         plt.figure(figsize=(10, 6))
         plt.plot(times, azimuths, marker='o', linestyle='-', color='b')
-        plt.title("Évolution de l'Azimut du Satellite (Passage)")
+        plt.title(f"Évolution de l'Azimut du Satellite{name}")
         plt.xlabel("Temps (UTC)")
         plt.ylabel("Azimut (degrés)")
         plt.ylim(0, 450)

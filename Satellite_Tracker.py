@@ -28,18 +28,30 @@ class Tracker():
         start_time = observation.visibility_window[0]
         stop_time = observation.visibility_window[1]
         self.tle = observation.satellite.tle[0]
-        ts = load.timescale()
+
         start_alt, start_az, start_distance = self.calcul_position(start_time)
         stop_alt, stop_az, stop_distance = self.calcul_position(stop_time)
 
         start_az.degrees, stop_az.degrees = self.normalize_azimuth(
-            start_az.degrees, stop_az.degrees)  # pas sur du truc
-        self.send_position(start_az.degrees, start_alt.degrees)
+            start_az.degrees, stop_az.degrees)
+
+        self.send_motor_position(start_az.degrees, start_alt.degrees)
 
        # envoi des positions de départ au moteur
         # tant que la position du moteur n'est pas égale à la position de départ du satellite
         # on attends que le moteur se place
-        # while (1):
+        while (1):
+            ts = load.timescale()
+            alt, az, distance = self.calcul_position(ts)
+
+            if ts < start_time:
+                time.sleep(10)
+            else:
+                az_motor, alt_motor = self.get_motor_position()
+                if (az-az_motor > 10):
+                    self.send_motor_position(az, alt)
+                else:
+                    time.sleep(5)
         # si l'écart entre temps actuel est le temps de départ est inférieur a 10s
         # Attends
         # sinon
@@ -59,15 +71,15 @@ class Tracker():
 
         else:
             return azimuth_start, azimuth_stop
-        # todo vérifier comment sont calculé les azimuths des satellites durant leurs période de passage
+        # todo trouver une solution pour avoir les bon angles lors des passages voir les screens
 
-    def send_position(self, azimuth, elevation):
+    def send_motor_position(self, azimuth, elevation):
         command = f'P {azimuth} {elevation}\n'
         self.socket.sendall(command.encode())
         response = self.socket.recv(1024).decode()
         print(f'Received: {response}')
 
-    def get_position(self):
+    def get_motor_position(self):
         command = 'p\n'
         self.socket.sendall(command.encode())
         response = self.socket.recv(1024).decode()
