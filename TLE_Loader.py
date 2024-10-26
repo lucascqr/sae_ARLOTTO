@@ -7,6 +7,7 @@ Created on Wed Sep 25 14:41:32 2024
 
 from ConfigurationReader import ConfigurationReader
 from skyfield.api import load, wgs84
+import matplotlib.pyplot as plt
 
 
 class Tle_Loader ():
@@ -106,6 +107,38 @@ class VisibilyWindowComputer ():
                       stop_time.utc_strftime('%Y-%m-%d %H:%M:%S')}\n",
                   f"culmination : {culmination_time.utc_strftime('%Y-%m-%d %H:%M:%S')}")
 
+    def calcul_azimuth(self, observation):
+        bluffton = wgs84.latlon(
+            self.station.latitude, self.station.longitude)
+        ts = load.timescale()
+
+        azimuths = []
+        times = []
+        current_time = observation.visibility_window[0]
+        while current_time < observation.visibility_window[1]:
+            topocentric_position = (
+                observation.satellite.tle[0] - bluffton).at(current_time)
+            alt, az, distance = topocentric_position.altaz()
+
+            if alt.degrees > 5:
+                azimuths.append(az.degrees)
+                times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
+
+            current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
+                                  current_time.utc.hour, current_time.utc.minute + 1)
+
+        self.plot_azimuth(azimuths, times)
+
+    def plot_azimuth(self, azimuths, times):
+        plt.figure(figsize=(10, 6))
+        plt.plot(times, azimuths, marker='o', linestyle='-', color='b')
+        plt.title("Évolution de l'Azimut du Satellite (Passage)")
+        plt.xlabel("Temps (UTC)")
+        plt.ylabel("Azimut (degrés)")
+        plt.ylim(0, 450)
+        plt.grid()
+        plt.show()
+
 
 if __name__ == '__main__':
     station_file = 'toml/station.toml'
@@ -124,3 +157,8 @@ if __name__ == '__main__':
         config.satellites, config.station, start_time, stop_time)
     computer.compute_Observation()
     computer.print_observation()
+
+
+# calcul des azimuthes des satellites en degrées pendant leur passage
+    # for obs in computer.observations:
+    #     computer.calcul_azimuth(obs)
