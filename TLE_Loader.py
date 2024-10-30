@@ -8,6 +8,9 @@ Created on Wed Sep 25 14:41:32 2024
 from ConfigurationReader import ConfigurationReader
 from skyfield.api import load, wgs84
 import matplotlib.pyplot as plt
+import numpy as np
+import plotly.graph_objects as go
+import plotly.io as pio
 
 
 class Tle_Loader ():
@@ -113,7 +116,9 @@ class VisibilyWindowComputer ():
         ts = load.timescale()
 
         azimuths = []
+        altitudes = []
         times = []
+        times_3D = []
         current_time = observation.visibility_window[0]
         while current_time < observation.visibility_window[1]:
             topocentric_position = (
@@ -122,21 +127,45 @@ class VisibilyWindowComputer ():
 
             if alt.degrees > 5:
                 azimuths.append(az.degrees)
+                altitudes.append(alt.degrees)
                 times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
+                times_3D.append(current_time)
 
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
                                   current_time.utc.hour, current_time.utc.minute + 1)
 
         self.plot_azimuth(azimuths, times, observation.satellite.name)
+        self.plot_azimuth_3d(azimuths, altitudes, times_3D, observation.visibility_window[0], observation.visibility_window[1],
+                             observation.satellite.name)
 
     def plot_azimuth(self, azimuths, times, name):
         plt.figure(figsize=(10, 6))
         plt.plot(times, azimuths, marker='o', linestyle='-', color='b')
-        plt.title(f"Évolution de l'Azimut du Satellite{name}")
+        plt.title(f"Évolution de l'Azimut du Satellite :{name}")
         plt.xlabel("Temps (UTC)")
         plt.ylabel("Azimut (degrés)")
         plt.ylim(0, 450)
         plt.grid()
+        plt.show()
+
+    def plot_azimuth_3d(self, azimuths, altitudes, times, start_time, stop_time, name):
+        start_time = start_time.utc[0] * 86400 + start_time.utc[1]
+        stop_time = stop_time.utc[0] * 86400 + stop_time.utc[1]
+        fig = plt.figure(figsize=(10, 6))
+        ax = fig.add_subplot(111, projection='3d')
+        times = np.array([t.utc[0] * 86400 + t.utc[1] for t in times])/60
+
+        ax.plot(azimuths, times, altitudes,
+                marker='o', linestyle='-', color='b')
+        ax.set_title(
+            f"Évolution de l'Azimut et Altitude du Satellite : {name}")
+
+        ax.set_ylabel("Temps (UTC)")
+        ax.set_xlabel("Azimut (degrés)")
+        ax.set_zlabel("Altitude (degrés)")
+
+        ax.set_ylim(start_time/60, stop_time/60)
+
         plt.show()
 
 
@@ -160,5 +189,5 @@ if __name__ == '__main__':
 
 
 # calcul des azimuthes des satellites en degrées pendant leur passage
-    # for obs in computer.observations:
-    #     computer.calcul_azimuth(obs)
+    for obs in computer.observations:
+        computer.calcul_azimuth(obs)

@@ -48,6 +48,8 @@ class Tracker():
                 time.sleep(10)
             else:
                 az_motor, alt_motor = self.get_motor_position()
+                az_motor, alt_motor = self.normalize_azimuth(
+                    az_motor, alt_motor)
                 if (az-az_motor > 10):
                     self.send_motor_position(az, alt)
                 else:
