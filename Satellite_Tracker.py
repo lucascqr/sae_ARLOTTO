@@ -10,6 +10,8 @@ from Planifier_remake import Plannifier
 from skyfield.api import load, wgs84
 import socket
 import time
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 class Tracker():
@@ -18,61 +20,31 @@ class Tracker():
         self.rotator = rotator
         self.tle = None
         self.socket = None
+        self.start_az = None
+        self.stop_az = None
 
     def connect_rotcltd(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.rotator.ip, self.rotator.port))
 
     def track_satellite(self, observation):
-
         start_time = observation.visibility_window[0]
         stop_time = observation.visibility_window[1]
         self.tle = observation.satellite.tle[0]
 
-        start_alt, start_az, start_distance = self.calcul_position(start_time)
-        stop_alt, stop_az, stop_distance = self.calcul_position(stop_time)
+    def normalize_azimuth(self, azimuth):
 
-        start_az.degrees, stop_az.degrees = self.normalize_azimuth(
-            start_az.degrees, stop_az.degrees)
+        if self.start_az.degrees < 90 and self.stop_az.degrees > 190:
+            print("1er : ", self.stop_az.degrees)
+            if azimuth.degrees < 90:
+                azimuth.degrees += 360
+        elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
+            print("2e : ", self.stop_az.degrees)
+            if azimuth.degrees < 90:
+                azimuth.degrees += 360
 
-        self.send_motor_position(start_az.degrees, start_alt.degrees)
+        return azimuth
 
-       # envoi des positions de départ au moteur
-        # tant que la position du moteur n'est pas égale à la position de départ du satellite
-        # on attends que le moteur se place
-        while (1):
-            ts = load.timescale()
-            alt, az, distance = self.calcul_position(ts)
-
-            if ts < start_time:
-                time.sleep(10)
-            else:
-                az_motor, alt_motor = self.get_motor_position()
-                az_motor, alt_motor = self.normalize_azimuth(
-                    az_motor, alt_motor)
-                if (az-az_motor > 10):
-                    self.send_motor_position(az, alt)
-                else:
-                    time.sleep(5)
-        # si l'écart entre temps actuel est le temps de départ est inférieur a 10s
-        # Attends
-        # sinon
-        # on vérifie si l'écart entre az du moteur et l'az de satellite > 10°
-        # si c'est le cas alors on calcul les nouvelles positions et on les envois au moteur
-        # sinon
-        # Attends
-
-    def normalize_azimuth(self, azimuth_start, azimuth_stop):
-        if azimuth_stop <= 90 and azimuth_start > 270:
-            azimuth_stop = 360 + azimuth_stop
-            return azimuth_start, azimuth_stop
-
-        elif azimuth_start <= 90 and azimuth_stop > 270:
-            azimuth_start = 360 + azimuth_start
-            return azimuth_start, azimuth_stop
-
-        else:
-            return azimuth_start, azimuth_stop
         # todo trouver une solution pour avoir les bon angles lors des passages voir les screens
 
     def send_motor_position(self, azimuth, elevation):
@@ -100,6 +72,78 @@ class Tracker():
         alt, az, distance = topocentric_position.altaz()
         return alt, az, distance
 
+    def calcul_normalize_azimuth(self, observation):
+        bluffton = wgs84.latlon(
+            self.station.latitude, self.station.longitude)
+        ts = load.timescale()
+
+        azimuths = []
+        altitudes = []
+        times = []
+        times_3D = []
+        current_time = observation.visibility_window[0]
+        stop_time = observation.visibility_window[1]
+        topocentric_position = (
+            observation.satellite.tle[0] - bluffton).at(current_time)
+        alt, self.start_az, distance = topocentric_position.altaz()
+
+        topocentric_position = (
+            observation.satellite.tle[0] - bluffton).at(stop_time)
+        alt, self.stop_az, distance = topocentric_position.altaz()
+
+        while current_time < observation.visibility_window[1]:
+            topocentric_position = (
+                observation.satellite.tle[0] - bluffton).at(current_time)
+            alt, az, distance = topocentric_position.altaz()
+            az = self.normalize_azimuth(az)
+
+            if alt.degrees > 5:
+                azimuths.append(az.degrees)
+                altitudes.append(alt.degrees)
+                times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
+                times_3D.append(current_time)
+
+            current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
+                                  current_time.utc.hour, current_time.utc.minute + 1)
+
+        self.plot_azimuth(azimuths, times, observation.satellite.name)
+        # self.plot_azimuth_3d(azimuths, altitudes, times_3D, observation.visibility_window[0], observation.visibility_window[1],
+        #                      observation.satellite.name)
+
+    def plot_azimuth(self, azimuths, times, name):
+        plt.figure(figsize=(10, 6))
+        plt.plot(times, azimuths, marker='o', linestyle='-', color='b')
+        plt.title(f"Évolution de l'Azimut du Satellite :{name}")
+        plt.xlabel("Temps (UTC)")
+        plt.ylabel("Azimut (degrés)")
+        plt.ylim(0, 450)
+        plt.grid()
+
+        for x, y in zip(times, azimuths):
+            plt.text(x, y + 10, f"{y:.1f}", ha='center',
+                     color='black', fontsize=8)
+        plt.show()
+
+    def plot_azimuth_3d(self, azimuths, altitudes, times, start_time, stop_time, name):
+        start_time = start_time.utc[0] * 86400 + start_time.utc[1]
+        stop_time = stop_time.utc[0] * 86400 + stop_time.utc[1]
+        fig = plt.figure(figsize=(10, 6))
+        ax = fig.add_subplot(111, projection='3d')
+        times = np.array([t.utc[0] * 86400 + t.utc[1] for t in times])/60
+
+        ax.plot(azimuths, times, altitudes,
+                marker='o', linestyle='-', color='b')
+        ax.set_title(
+            f"Évolution de l'Azimut et Altitude du Satellite : {name}")
+
+        ax.set_ylabel("Temps (UTC)")
+        ax.set_xlabel("Azimut (degrés)")
+        ax.set_zlabel("Altitude (degrés)")
+
+        ax.set_ylim(start_time/60, stop_time/60)
+
+        plt.show()
+
 
 if __name__ == "__main__":
     station_file = 'toml/station.toml'
@@ -125,5 +169,6 @@ if __name__ == "__main__":
     # print(planning.planning[0].visibility_window[0])
     tracker = Tracker(config.station, config.rotator)
     for obs in planning.planning:
-        tracker.track_satellite(obs)
+        # tracker.track_satellite(obs)
+        tracker.calcul_normalize_azimuth(obs)
     # tracker.connect_rotcltd()

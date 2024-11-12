@@ -9,8 +9,6 @@ from ConfigurationReader import ConfigurationReader
 from skyfield.api import load, wgs84
 import matplotlib.pyplot as plt
 import numpy as np
-import plotly.graph_objects as go
-import plotly.io as pio
 
 
 class Tle_Loader ():
@@ -146,6 +144,11 @@ class VisibilyWindowComputer ():
         plt.ylabel("Azimut (degrés)")
         plt.ylim(0, 450)
         plt.grid()
+
+        for x, y in zip(times, azimuths):
+            plt.text(x, y + 10, f"{y:.1f}", ha='center',
+                     color='black', fontsize=8)
+
         plt.show()
 
     def plot_azimuth_3d(self, azimuths, altitudes, times, start_time, stop_time, name):
