@@ -34,16 +34,25 @@ class Tracker():
 
     def normalize_azimuth(self, azimuth):
 
-        if self.start_az.degrees < 90 and self.stop_az.degrees > 190:
-            print("1er : ", self.stop_az.degrees)
-            if azimuth.degrees < 90:
-                azimuth.degrees += 360
-        elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
-            print("2e : ", self.stop_az.degrees)
-            if azimuth.degrees < 90:
-                azimuth.degrees += 360
+        # az_normalize = azimuth
+        # if self.start_az.degrees < 90 and self.stop_az.degrees > 190:
+        #     # print("1er : ", self.stop_az.degrees)
+        #     if az_normalize.degrees < 90:
+        #         az_normalize.degrees += 360
+        # elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
+        #     # print("2e : ", self.stop_az.degrees)
+        #     if az_normalize.degrees < 90:
+        #         az_normalize.degrees += 360
 
-        return azimuth
+        # return az_normalize.degrees
+        az_normalized = azimuth.degrees
+        if self.start_az.degrees < 90 and self.stop_az.degrees > 190:
+            if azimuth.degrees < 90:
+                az_normalized += 360
+        elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
+            if azimuth.degrees < 90:
+                az_normalized += 360
+        return az_normalized
 
         # todo trouver une solution pour avoir les bon angles lors des passages voir les screens
 
@@ -68,7 +77,7 @@ class Tracker():
     def calcul_position(self, t):
         bluffton = wgs84.latlon(
             self.station.latitude, self.station.longitude)
-        topocentric_position = (self.tle - bluffton).at(t)
+        topocentric_position = (self.tle - bluffton).at(t)  # à corriger
         alt, az, distance = topocentric_position.altaz()
         return alt, az, distance
 
@@ -78,9 +87,11 @@ class Tracker():
         ts = load.timescale()
 
         azimuths = []
+        azimuths_normalize = []
         altitudes = []
         times = []
         times_3D = []
+
         current_time = observation.visibility_window[0]
         stop_time = observation.visibility_window[1]
         topocentric_position = (
@@ -95,10 +106,13 @@ class Tracker():
             topocentric_position = (
                 observation.satellite.tle[0] - bluffton).at(current_time)
             alt, az, distance = topocentric_position.altaz()
-            az = self.normalize_azimuth(az)
+
+            az_normalize = self.normalize_azimuth(az)
+            # az_normalize = 0
 
             if alt.degrees > 5:
                 azimuths.append(az.degrees)
+                azimuths_normalize.append(az_normalize)
                 altitudes.append(alt.degrees)
                 times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
                 times_3D.append(current_time)
@@ -106,12 +120,15 @@ class Tracker():
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
                                   current_time.utc.hour, current_time.utc.minute + 1)
 
-        self.plot_azimuth(azimuths, times, observation.satellite.name)
+        self.plot_azimuth(azimuths, azimuths_normalize,
+                          times, observation.satellite.name)
         # self.plot_azimuth_3d(azimuths, altitudes, times_3D, observation.visibility_window[0], observation.visibility_window[1],
         #                      observation.satellite.name)
 
-    def plot_azimuth(self, azimuths, times, name):
+    def plot_azimuth(self, azimuths, azimuths_normalize, times, name):
         plt.figure(figsize=(10, 6))
+        plt.plot(times, azimuths_normalize,
+                 marker='x', color='r')
         plt.plot(times, azimuths, marker='o', linestyle='-', color='b')
         plt.title(f"Évolution de l'Azimut du Satellite :{name}")
         plt.xlabel("Temps (UTC)")
