@@ -26,16 +26,6 @@ class Tracker():
     def track_satellite(self, observation):
         self.tle = observation.satellite.tle[0]
 
-        start_time = observation.visibility_window[0]
-        stop_time = observation.visibility_window[1]
-        middle_time = start_time+(stop_time-start_time)/2
-
-        start_alt, self.start_az, start_distance = self.calcul_position(
-            start_time)
-        stop_alt, self.stop_az, stop_distance = self.calcul_position(stop_time)
-        middle_alt, self.middle_az, middle_distance = self.calcul_position(
-            middle_time)
-
     def calcul_normalize_azimuth(self, observation):
         bluffton = wgs84.latlon(
             self.station.latitude, self.station.longitude)
@@ -49,7 +39,6 @@ class Tracker():
 
         current_time = observation.visibility_window[0]
         stop_time = observation.visibility_window[1]
-        middle_time = current_time+(stop_time-current_time)/2
 
         topocentric_position = (
             observation.satellite.tle[0] - bluffton).at(current_time)
@@ -59,17 +48,23 @@ class Tracker():
             observation.satellite.tle[0] - bluffton).at(stop_time)
         alt, self.stop_az, distance = topocentric_position.altaz()
 
-        topocentric_position = (
-            observation.satellite.tle[0] - bluffton).at(middle_time)
-        middle_alt, self.middle_az, middle_distance = topocentric_position.altaz()
+        while current_time < stop_time:
 
-        while current_time < observation.visibility_window[1]:
             topocentric_position = (
                 observation.satellite.tle[0] - bluffton).at(current_time)
             alt, az, distance = topocentric_position.altaz()
+            if self.start_az.degrees > 90 and self.start_az.degrees < 180 and self.stop_az.degrees > 200:
+                normalize = 180
+            elif self.start_az.degrees > 200 and self.stop_az.degrees > 90 and self.stop_az.degrees < 180:
+                normalize = 180
+            elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
+                normalize = 360
+            elif self.start_az.degrees < 90 and self.stop_az.degrees > 200:
+                normalize = 360
+            else:
+                normalize = 0
 
-            az_normalize = self.normalize_azimuth(az)
-            # az_normalize = 0
+            az_normalize = self.normalize_azimuth(az, normalize)
 
             if alt.degrees > 5:
                 azimuths.append(az.degrees)
@@ -81,21 +76,23 @@ class Tracker():
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
                                   current_time.utc.hour, current_time.utc.minute + 1)
 
+        self.plot_azimuth_polar(azimuths, azimuths_normalize,
+                                times, observation.satellite.name)
         self.plot_azimuth(azimuths, azimuths_normalize,
                           times, observation.satellite.name)
+        self.plot_Alt(altitudes, times, observation.satellite.name)
 
-    def normalize_azimuth(self, azimuth):
-        delta = abs(self.stop_az.degrees-self.start_az.degrees)
-        delta_middle = abs(self.middle_az.degrees - self.start_az.degrees)
-        delta_middle_sign = self.middle_az.degrees - self.start_az.degrees
+    def normalize_azimuth(self, azimuth, normalize):
         az_normalized = azimuth.degrees
-        if delta > 180:
-            if delta_middle > 100 and delta_middle_sign > 0:
-                if azimuth.degrees < 90:
-                    az_normalized += 360
-            elif self.start_az.degrees > 220:
-                if azimuth.degrees < 90:
-                    az_normalized += 360
+        if normalize == 180:
+            if azimuth.degrees > 180:
+                az_normalized -= 180
+            else:
+                az_normalized += 180
+        elif normalize == 360:
+            if azimuth.degrees < 90:
+                az_normalized += 360
+
         return az_normalized
 
     def calcul_position(self, t):
@@ -105,7 +102,7 @@ class Tracker():
         alt, az, distance = topocentric_position.altaz()
         return alt, az, distance
 
-    def plot_azimuth(self, azimuths, azimuths_normalize, times, name):
+    def plot_azimuth_polar(self, azimuths, azimuths_normalize, times, name):
         azimuths = np.radians(azimuths)
         azimuths_normalize = np.radians(azimuths_normalize)
         plt.figure(figsize=(10, 6))
@@ -125,6 +122,32 @@ class Tracker():
         # for x, y in zip(times, azimuths):
         #     plt.text(x, y + 10, f"{y:.1f}", ha='center',
         #              color='black', fontsize=8)
+        plt.show()
+
+    def plot_azimuth(self, azimuths, azimuths_normalize, times, name):
+        plt.figure(figsize=(10, 6))
+        plt.plot(times, azimuths, marker='x', color='b')
+        plt.plot(times, azimuths_normalize, marker='o', color='r')
+        plt.title(
+            f"Évolution des azimutes en fonctions du temps du satellite :{name}")
+        plt.xlabel("Temps(UTC)")
+        plt.ylabel("Azimut (deg)")
+        for x, y in zip(times, azimuths):
+            plt.text(x, y + 10, f"{y:.1f}", ha='center',
+                     color='black', fontsize=8)
+
+        plt.show()
+
+    def plot_Alt(self, altitudes, times, name):
+        plt.figure(figsize=(10, 6))
+        plt.plot(times, altitudes, marker='x', color='r')
+        plt.title(
+            f"Évolution de l'altitudes en fonction du temps du satellite :{name}")
+        plt.xlabel("Temps(UTC)")
+        plt.ylabel("Altitudes (degrees)")
+        for x, y in zip(times, altitudes):
+            plt.text(x, y + 0.2, f"{y:.1f}", ha='center',
+                     color='black', fontsize=8)
         plt.show()
 
 
