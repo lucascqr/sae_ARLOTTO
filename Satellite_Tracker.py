@@ -20,9 +20,13 @@ class Tracker():
         self.rotator = rotator
         self.tle = None
         self.socket = None
+
         self.start_az = None
         self.start_alt = None
         self.stop_az = None
+
+        self.start_time = None
+        self.stop_time = None
         self.normalize = None
 
     def connect_rotcltd(self):
@@ -32,20 +36,28 @@ class Tracker():
     def track_satellite(self):
         az, alt = self.normalize_trajectory(self.start_az, self.start_alt)
         self.send_motor_position(az, alt)
-
+        print(self.start_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
+        print(self.stop_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
         while (1):
             ts = load.timescale()
-            alt, az, distance = self.calcul_position(ts)
-            alt, az = self.normalize_trajectory(self.start_az, self.start_alt)
+            t = ts.now()
 
-            if ts < start_time:
-                time.sleep(10)
-            else:
-                az_motor, alt_motor = self.get_motor_position()
-                if (abs(az.degrees-az_motor) > 10):
-                    self.send_motor_position(az, alt)
+            if t < self.stop_time:
+                alt, az, distance = self.calcul_position(t)
+                az, alt = self.normalize_trajectory(
+                    az, alt)
+
+                if t < self.start_time:
+                    time.sleep(20)
                 else:
-                    time.sleep(5)
+                    az_motor, alt_motor = self.get_motor_position()
+                    if (abs(az-az_motor) > 10):
+                        self.send_motor_position(az, alt)
+                    else:
+                        time.sleep(10)
+            else:
+                print("fin du suivi du satellite")
+                return
 
     def normalize_trajectory(self, azimuth, elevation):
 
@@ -56,7 +68,7 @@ class Tracker():
                 az_normalized -= 180
             else:
                 az_normalized += 180
-            elevation_normalized = 180 - elevation
+            elevation_normalized = 180 - elevation.degrees
         elif self.normalize == 450:
             if azimuth.degrees < 90:
                 az_normalized += 360
@@ -65,6 +77,7 @@ class Tracker():
 
     def send_motor_position(self, azimuth, elevation):
         command = f'P {azimuth} {elevation}\n'
+        print("command : ", command)
         self.socket.sendall(command.encode())
         response = self.socket.recv(1024).decode()
         print(f'Received: {response}')
@@ -84,7 +97,7 @@ class Tracker():
     def calcul_position(self, t):
         bluffton = wgs84.latlon(
             self.station.latitude, self.station.longitude)
-        topocentric_position = (self.tle - bluffton).at(t)  # à corriger
+        topocentric_position = (self.tle - bluffton).at(t)
         alt, az, distance = topocentric_position.altaz()
         return alt, az, distance
 
@@ -92,26 +105,35 @@ class Tracker():
         self.tle = observation.satellite.tle[0]
 
         trajectory = []
+        times = []
 
         current_time = observation.visibility_window[0]
-        stop_time = observation.visibility_window[1]
+        self.start_time = observation.visibility_window[0]
+        self.stop_time = observation.visibility_window[1]
 
         self.start_alt, self.start_az, distance = self.calcul_position(
             current_time)
         alt, self.stop_az, distance = self.calcul_position(stop_time)
 
-        while current_time < stop_time:
+        while current_time < self.stop_time:
+
             alt, az, distance = self.calcul_position(current_time)
 
-            trajectory.append(az.degrees)
+            if alt.degrees > 5:
+                trajectory.append(az.degrees)
+                times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
 
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
                                   current_time.utc.hour, current_time.utc.minute + 1)
 
-        self.normalize = self.select_azimuth_normalization(trajectory)
+        # print(observation.satellite.name, trajectory)
+        self.plot_azimuth(trajectory, times, observation.satellite.name)
+        self.normalize = self.select_trajectory_normalization(trajectory)
+        print("Normalisation : ", self.normalize,
+              "satellite :", observation.satellite.name)
         self.track_satellite()
 
-    def select_azimuth_normalization(self, trajectory):
+    def select_trajectory_normalization(self, trajectory):
 
         for i, azimuths in enumerate(trajectory[:-1]):
             next_azimuths = trajectory[i + 1]
@@ -125,6 +147,18 @@ class Tracker():
                 normalize = 0
 
         return normalize
+
+    def plot_azimuth(self, azimuths, times, name):
+        plt.figure(figsize=(10, 6))
+        plt.plot(times, azimuths, marker='x', color='b')
+        plt.title(
+            f"Évolution des azimutes en fonctions du temps du satellite :{name}")
+        plt.xlabel("Temps(UTC)")
+        plt.ylabel("Azimut (deg)")
+        for x, y in zip(times, azimuths):
+            plt.text(x, y + 10, f"{y:.1f}", ha='center',
+                     color='black', fontsize=8)
+        plt.show()
 
 
 if __name__ == "__main__":
