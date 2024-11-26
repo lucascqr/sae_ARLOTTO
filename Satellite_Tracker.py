@@ -29,15 +29,23 @@ class Tracker():
         self.stop_time = None
         self.normalize = None
 
+        self.simulation = True
+
     def connect_rotcltd(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((self.rotator.ip, self.rotator.port))
+        if self.simulation:
+            command = 'C max_el 180\n'
+            self.socket.sendall(command.encode())
+            response = self.socket.recv(1024).decode()
+            print(f'Received: {response}')
 
     def track_satellite(self):
         az, alt = self.normalize_trajectory(self.start_az, self.start_alt)
-        self.send_motor_position(az, alt)
+        self.send_motor_position(int(az), int(alt))
         print(self.start_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
         print(self.stop_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
+        time.sleep(20)
         while (1):
             ts = load.timescale()
             t = ts.now()
@@ -51,8 +59,9 @@ class Tracker():
                     time.sleep(20)
                 else:
                     az_motor, alt_motor = self.get_motor_position()
-                    if (abs(az-az_motor) > 10):
-                        self.send_motor_position(az, alt)
+                    if (abs(az-az_motor) > 5 or abs(alt-alt_motor) > 5):
+                        self.send_motor_position(int(az), int(alt))
+                        time.sleep(5)
                     else:
                         time.sleep(10)
             else:
@@ -89,9 +98,9 @@ class Tracker():
         index = response.find('\n')
         len_rep = len(response)
         print(f'Received: {response}')
-
-        azimuth = float(response[0:index])
-        elevation = float(response[index+1:len_rep-1])
+        if response[0:4] != 'RPRT':
+            azimuth = float(response[0:index])
+            elevation = float(response[index+1:len_rep-1])
         return azimuth, elevation
 
     def calcul_position(self, t):

@@ -14,7 +14,7 @@ api = 'Soapy'
 [rotator]
 name = 'rotor1'
 ip = '172.29.57.4'
-port = 4533
+port = 4545
 
 [directories]
 base_dir = "."  
