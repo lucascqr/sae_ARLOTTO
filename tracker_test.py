@@ -53,6 +53,10 @@ class Tracker():
             observation.satellite.tle[0] - bluffton).at(stop_time)
         alt, self.stop_az, distance = topocentric_position.altaz()
 
+        print(observation.satellite.name)
+        print(current_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
+        print(stop_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
+
         while current_time_1 < stop_time:
             topocentric_position = (
                 observation.satellite.tle[0] - bluffton).at(current_time_1)
@@ -72,17 +76,6 @@ class Tracker():
             topocentric_position = (
                 observation.satellite.tle[0] - bluffton).at(current_time)
             alt, az, distance = topocentric_position.altaz()
-
-            # if self.start_az.degrees > 90 and self.start_az.degrees < 180 and self.stop_az.degrees > 200:
-            #     normalize = 180
-            # elif self.start_az.degrees > 200 and self.stop_az.degrees > 90 and self.stop_az.degrees < 180:
-            #     normalize = 180
-            # elif self.start_az.degrees > 200 and self.stop_az.degrees < 90:
-            #     normalize = 360
-            # elif self.start_az.degrees < 90 and self.stop_az.degrees > 200:
-            #     normalize = 360
-            # else:
-            #     normalize = 0
 
             az_normalize, elev_normalize = self.normalize_azimuth(
                 az, alt.degrees, normalize)
@@ -109,7 +102,7 @@ class Tracker():
         for i, azimuths in enumerate(trajectory[:-1]):
             next_azimuths = trajectory[i + 1]
             if abs(next_azimuths - azimuths) > 180:
-                print(next_azimuths, azimuths, "\n")
+                # print(next_azimuths, azimuths, "\n")
                 if self.start_az.degrees < 90 or self.stop_az.degrees < 90:
                     return 450
                 else:

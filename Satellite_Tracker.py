@@ -11,7 +11,7 @@ from skyfield.api import load, wgs84
 import socket
 import time
 import matplotlib.pyplot as plt
-import numpy as np
+import subprocess
 
 
 class Tracker():
@@ -20,10 +20,13 @@ class Tracker():
         self.rotator = rotator
         self.tle = None
         self.socket = None
+        self.process = None
 
         self.start_az = None
         self.start_alt = None
         self.stop_az = None
+        self.last_az = None
+        self.last_alt = None
 
         self.start_time = None
         self.stop_time = None
@@ -31,21 +34,59 @@ class Tracker():
 
         self.simulation = True
 
+    def launch_rotctld(self):
+        if self.simulation:
+            command = ["wsl", "rotctld", "-t", str(self.rotator.port)]
+        else:
+            command = ["wsl", "rotctld", "-m", "603", "-r",
+                       str(self.rotator.ip), "-t", str(self.rotator.port), "-vvv"]
+
+        self.process = subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+        self.connect_rotcltd()
+
+    def reload_rotctld(self):
+        self.process.kill()
+        self.launch_rotctld()
+
     def connect_rotcltd(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((self.rotator.ip, self.rotator.port))
+        self.socket.connect((self.rotator.ip_rotctld, self.rotator.port))
+
         if self.simulation:
             command = 'C max_el 180\n'
             self.socket.sendall(command.encode())
+            command = 'C min_az 0\n'
+            self.socket.sendall(command.encode())
             response = self.socket.recv(1024).decode()
-            print(f'Received: {response}')
+            print(f'Simulation mode : {response}')
+
+    def clear_socket_buffer(self):
+        self.socket.setblocking(0)  # Passer le socket en mode non-bloquant
+        try:
+            while True:
+                data = self.socket.recv(1024)
+                if not data:
+                    break
+        except BlockingIOError:
+            pass  # Rien à lire
+        finally:
+            self.socket.setblocking(1)  # Revenir au mode bloquant
 
     def track_satellite(self):
         az, alt = self.normalize_trajectory(self.start_az, self.start_alt)
         self.send_motor_position(int(az), int(alt))
+
+        if self.simulation:
+            self.last_az = az
+            self.last_alt = alt
+
         print(self.start_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
         print(self.stop_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
+
         time.sleep(20)
+
         while (1):
             ts = load.timescale()
             t = ts.now()
@@ -61,7 +102,9 @@ class Tracker():
                     az_motor, alt_motor = self.get_motor_position()
                     if (abs(az-az_motor) > 5 or abs(alt-alt_motor) > 5):
                         self.send_motor_position(int(az), int(alt))
-                        time.sleep(5)
+                        self.last_az = az
+                        self.last_alt = alt
+                        time.sleep(10)
                     else:
                         time.sleep(10)
             else:
@@ -87,21 +130,34 @@ class Tracker():
     def send_motor_position(self, azimuth, elevation):
         command = f'P {azimuth} {elevation}\n'
         print("command : ", command)
+
+        if self.simulation:
+            self.clear_socket_buffer()
+
         self.socket.sendall(command.encode())
         response = self.socket.recv(1024).decode()
-        print(f'Received: {response}')
+        print(f'Received Command: {response}')
 
     def get_motor_position(self):
         command = 'p\n'
+
+        if self.simulation:
+            self.clear_socket_buffer()
+
         self.socket.sendall(command.encode())
         response = self.socket.recv(1024).decode()
         index = response.find('\n')
         len_rep = len(response)
-        print(f'Received: {response}')
-        if response[0:4] != 'RPRT':
+        try:
+            print(f'Received: {response}')
             azimuth = float(response[0:index])
             elevation = float(response[index+1:len_rep-1])
-        return azimuth, elevation
+            return azimuth, elevation
+        except ValueError:
+            if response == 'RPRT -6':
+                self.reload_rotctld()
+            print(f'Réponse invalide : {response}')
+            return self.last_az, self.last_alt
 
     def calcul_position(self, t):
         bluffton = wgs84.latlon(
@@ -148,6 +204,7 @@ class Tracker():
             next_azimuths = trajectory[i + 1]
             if abs(next_azimuths - azimuths) > 180:
                 print(next_azimuths, azimuths, "\n")
+                print(self.start_az.degrees, self.stop_az.degrees, "\n")
                 if self.start_az.degrees < 90 or self.stop_az.degrees < 90:
                     return 450
                 else:
@@ -194,7 +251,7 @@ if __name__ == "__main__":
     # print(planning.planning[0].visibility_window[0])
 
     tracker = Tracker(config.station, config.rotator)
-    tracker.connect_rotcltd()
+    tracker.launch_rotctld()
     for obs in planning.planning:
         # tracker.track_satellite(obs)
         tracker.calcul_trajectory(obs)

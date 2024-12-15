@@ -13,7 +13,8 @@ api = 'Soapy'
 
 [rotator]
 name = 'rotor1'
-ip = '172.29.57.4'
+ip = '192.168.0.20:9999'
+ip_rotctld = '172.29.57.4'
 port = 4545
 
 [directories]
