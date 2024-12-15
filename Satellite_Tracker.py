@@ -199,13 +199,15 @@ class Tracker():
         self.track_satellite()
 
     def select_trajectory_normalization(self, trajectory):
+        # trajectory[0] --> self.start_az.degrees
+        # trajectory[-1] --> self.stop_az.degrees
 
         for i, azimuths in enumerate(trajectory[:-1]):
             next_azimuths = trajectory[i + 1]
             if abs(next_azimuths - azimuths) > 180:
                 print(next_azimuths, azimuths, "\n")
                 print(self.start_az.degrees, self.stop_az.degrees, "\n")
-                if self.start_az.degrees < 90 or self.stop_az.degrees < 90:
+                if trajectory[0] < 90 or trajectory[-1] < 90:
                     return 450
                 else:
                     return 180
