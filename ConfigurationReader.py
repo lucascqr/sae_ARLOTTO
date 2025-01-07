@@ -32,7 +32,7 @@ class ConfigurationReader:
 
             rot = data['rotator']
             self.rotator = Rotator(
-                rot['name'], rot['ip_rotctld'], rot['ip'], rot['port'])
+                rot['name'], rot['ip'], rot['ip_rotctld'], rot['port'])
 
             fch = data['directories']
             self.directories = Directories(
@@ -117,7 +117,7 @@ class Rotator:
     def __init__(self, name, ip, ip_rotctld, port):
         self.name = name
         self.ip = ip
-        self.ip_rotctld = ip
+        self.ip_rotctld = ip_rotctld
         self.port = port
 
     def print(self):

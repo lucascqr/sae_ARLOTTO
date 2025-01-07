@@ -1,0 +1,23 @@
+connect to 198.168.1.83:9999 failed, (trying next interface): Network error 110: Connection timed out
+network_open: failed to connect to 198.168.1.83:9999
+rot_open: error = rot_register (601)
+rot_register (609)
+rot_register (610)
+rot_register (602)
+rot_register (603)
+rot_register (611)
+rot_register (612)
+rot_register (604)
+rot_register (605)
+rot_register (606)
+rot_register (607)
+rot_register (608)
+gs232b_rot_init called
+set_conf: called
+rot_open called
+rot_open: using network address 198.168.1.83:9999
+network_open: hoststr=198.168.1.83, portstr=9999
+connect to 198.168.1.83:9999 failed, (trying next interface): Network error 110: Connection timed out
+network_open: failed to connect to 198.168.1.83:9999
+IO error
+ 

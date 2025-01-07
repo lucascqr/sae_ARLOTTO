@@ -32,18 +32,23 @@ class Tracker():
         self.stop_time = None
         self.normalize = None
 
-        self.simulation = True
+        self.simulation = False
 
     def launch_rotctld(self):
         if self.simulation:
             command = ["wsl", "rotctld", "-t", str(self.rotator.port)]
         else:
             command = ["wsl", "rotctld", "-m", "603", "-r",
-                       str(self.rotator.ip), "-t", str(self.rotator.port), "-vvv"]
+                       str(self.rotator.ip), '-t', str(self.rotator.port), "-vvv"]
+            # command = ["wsl", "rotctld", "-m", "603", "-r",
+            #            "172.20.10.3:9999", '-t', "4545", "-vvv"]
+
+        print(str(self.rotator.ip))
 
         self.process = subprocess.Popen(
             command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
+        time.sleep(5)
         self.connect_rotcltd()
 
     def reload_rotctld(self):
@@ -154,7 +159,7 @@ class Tracker():
             elevation = float(response[index+1:len_rep-1])
             return azimuth, elevation
         except ValueError:
-            if response == 'RPRT -6':
+            if response.strip() == 'RPRT -6':
                 self.reload_rotctld()
             print(f'Réponse invalide : {response}')
             return self.last_az, self.last_alt
