@@ -34,14 +34,41 @@ class Tracker():
 
         self.simulation = False
 
+        self.osName = subprocess.os.name
+
+    def tryPing(self):
+        if not self.simulation:
+            if self.osName == 'nt':
+                command = ["wsl", "ping", str(self.rotator.ip), "-c", "4"]
+            else:
+                command = ["ping", str(self.rotator.ip), "-c", "4"]
+
+            process = subprocess.Popen(
+                command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+            stdout, stderr = process.communicate()
+
+            if process.returncode == 0:
+                print('Ping réussi')
+                print(stdout)
+            else:
+                print("erreur")
+
     def launch_rotctld(self):
+        # self.tryPing()
+
         if self.simulation:
-            command = ["wsl", "rotctld", "-t", str(self.rotator.port)]
+            if self.osName == 'nt':
+                command = ["wsl", "rotctld", "-t", str(self.rotator.port)]
+            else:
+                command = ["rotctld", "-t", str(self.rotator.port)]
         else:
-            command = ["wsl", "rotctld", "-m", "603", "-r",
-                       str(self.rotator.ip), '-t', str(self.rotator.port), "-vvv"]
-            # command = ["wsl", "rotctld", "-m", "603", "-r",
-            #            "172.20.10.3:9999", '-t', "4545", "-vvv"]
+            if self.osName == 'nt':
+                command = ["wsl", "rotctld", "-m", "603", "-r",
+                           str(self.rotator.ip+':9999'), '-t', str(self.rotator.port), "-vvv"]
+            else:
+                command = ["rotctld", "-m", "603", "-r",
+                           str(self.rotator.ip+':9999'), '-t', str(self.rotator.port), "-vvv"]
 
         print(str(self.rotator.ip))
 
