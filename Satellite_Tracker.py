@@ -12,6 +12,8 @@ import socket
 import time
 import matplotlib.pyplot as plt
 import subprocess
+import sys
+import signal
 
 
 class Tracker():
@@ -35,13 +37,30 @@ class Tracker():
         self.simulation = False
 
         self.osName = subprocess.os.name
+        signal.signal(signal.SIGINT, self._handle_interrupt)
+
+    def _handle_interrupt(self, signum, frame):
+        print("\nInterruption du programme en cours...")
+        self.cleanup()
+        sys.exit(0)
+
+    def cleanup(self):
+        if self.process:
+            print("Terminaison du processus rotctld...")
+            self.process.terminate()  # Envoyer un signal de terminaison
+            try:
+                # Attendre que le processus se termine
+                self.process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                print("Le processus n'a pas répondu, forçant la fermeture...")
+                self.process.kill()  # Forcer la fermeture si nécessaire
+            print("Processus terminé.")
 
     def tryPing(self):
         if not self.simulation:
+            command = ["ping", str(self.rotator.ip), "-c", "4"]
             if self.osName == 'nt':
-                command = ["wsl", "ping", str(self.rotator.ip), "-c", "4"]
-            else:
-                command = ["ping", str(self.rotator.ip), "-c", "4"]
+                command.insert(0, "wsl")
 
             process = subprocess.Popen(
                 command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -58,17 +77,14 @@ class Tracker():
         # self.tryPing()
 
         if self.simulation:
+            command = ["rotctld", "-t", str(self.rotator.port)]
             if self.osName == 'nt':
-                command = ["wsl", "rotctld", "-t", str(self.rotator.port)]
-            else:
-                command = ["rotctld", "-t", str(self.rotator.port)]
+                command.insert(0, "wsl")
         else:
+            command = ["rotctld", "-m", "603", "-r",
+                       f"{self.rotator.ip}:9999", '-t', str(self.rotator.port), "-vvv"]
             if self.osName == 'nt':
-                command = ["wsl", "rotctld", "-m", "603", "-r",
-                           str(self.rotator.ip+':9999'), '-t', str(self.rotator.port), "-vvv"]
-            else:
-                command = ["rotctld", "-m", "603", "-r",
-                           str(self.rotator.ip+':9999'), '-t', str(self.rotator.port), "-vvv"]
+                command.insert(0, "wsl")
 
         print(str(self.rotator.ip))
 
