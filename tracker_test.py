@@ -85,7 +85,7 @@ class Tracker():
                 azimuths_normalize.append(az_normalize)
                 altitudes.append(alt.degrees)
                 altitudes_normalize.append(elev_normalize)
-                times.append(current_time.utc_strftime('%Y-%m-%d %H:%M:%S'))
+                times.append(current_time.utc_strftime('%d %H:%M:%S'))
                 times_3D.append(current_time)
 
             current_time = ts.utc(current_time.utc.year, current_time.utc.month, current_time.utc.day,
@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
     ts = load.timescale()
     start_time = ts.now()
-    stop_time = ts.now() + 1
+    stop_time = ts.now() + 7
 
     computer = VisibilyWindowComputer(
         config.satellites, config.station, start_time, stop_time)
