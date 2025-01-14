@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
     ts = load.timescale()
     start_time = ts.now()
-    stop_time = ts.now() + 7
+    stop_time = ts.now() + 1
 
     computer = VisibilyWindowComputer(
         config.satellites, config.station, start_time, stop_time)

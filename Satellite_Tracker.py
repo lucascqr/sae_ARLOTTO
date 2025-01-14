@@ -126,9 +126,8 @@ class Tracker():
         az, alt = self.normalize_trajectory(self.start_az, self.start_alt)
         self.send_motor_position(int(az), int(alt))
 
-        if self.simulation:
-            self.last_az = az
-            self.last_alt = alt
+        self.last_az = az
+        self.last_alt = alt
 
         print(self.start_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
         print(self.stop_time.utc_strftime(format='%Y-%m-%d %H:%M:%S UTC'))
