@@ -1,0 +1,2350 @@
+[
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 155,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 155,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 84,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 84,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 156,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 157,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 157,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 157,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 157,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 158,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 159,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 160,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 160,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 160,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 160,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 160,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.14999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 161,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 162,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 84,
+            "Lamp Current Channel 1": 145,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 162,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 162,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 162,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 162,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 163,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 163,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 163,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 163,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 94,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 84,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 84,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.15,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 84,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "analog_tlm": {
+            "Baseplate Temperature": 205,
+            "Cold Body Temperature 1 (258K)": 263.65,
+            "Cold Body Temperature 2 (258K)": 263.65,
+            "Cold Body Temperature 3 (258K)": 263.15,
+            "Detector Temperature Channel 3": 179,
+            "Detector Temperature Channel 5": 164,
+            "Detector Temperature Channel 6": 132,
+            "High voltage control on FP VK1": 83,
+            "High voltage control on FP VK2": 93,
+            "Hot Body Temperature 1 (313K)": 315.15,
+            "Hot Body Temperature 2 (313K)": 316.65,
+            "Hot Body Temperature 3 (313K)": 212.64999999999998,
+            "IR Lenses temperatures": 85,
+            "Lamp Current Channel 1": 146,
+            "Lamp Current Channel 2": 139,
+            "Lamp Current Channel 3": 142
+        },
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    },
+    {
+        "msu_mr_id": 4,
+        "msu_mr_set": "backup"
+    }
+]
